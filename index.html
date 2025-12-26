@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUTH STREET SECURITY SERVICE, LLC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7e9fc; /* Light purple background */
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.2); /* Purple shadow */
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #a020f0; /* Purple border */
+        }
+        h1 {
+            color: #800080; /* Darker purple */
+            margin-bottom: 20px;
+        }
+        .warning {
+            color: #a020f0;
+            font-weight: bold;
+            margin-top: 30px;
+            border: 1px solid #a020f0;
+            padding: 10px;
+            background-color: #fcf7fd;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            width: calc(100% - 22px); /* Adjust for padding and border */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #800080;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: #6a006a;
+        }
+        #displayArea {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #f3e6f9;
+            border: 1px dashed #c080d0;
+            text-align: left;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .important-note {
+            color: #cc0000; /* Red for emphasis */
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>South Street Security Service LLC</h1>
+	<p>Please wait while we redirect you to our secure platforms...</p>
+        <p class="warning">
+            <strong>WARNING:</strong> ANY UNAUTHORIZED ACCESS OF THIS PORTAL CONSTITUTES CRIMINAL ACTIVITY.</p>
+        <p class="important-note">
+            Please leave this webpage <strong>IMMEDIATELY</strong> if you are not an employee or licensed contractor for SOUTH STREET SECURITY SERVICE, LLC.
+        </p>
+    </div>
+
+    <script>
+        const sensitiveDataKey = 'sensitiveData';
+        const displayStatusElement = document.getElementById('currentDataStatus'); // Changed ID for clarity
+
+        // Function to update the displayed status (not the data itself)
+        function updateDisplayStatus() {
+            if (localStorage.getItem(sensitiveDataKey)) {
+                displayStatusElement.textContent = 'A "sensitiveData" key is present in Local Storage.';
+            } else {
+                displayStatusElement.textContent = 'No "sensitiveData" key found in Local Storage.';
+            }
+        }
+
+
+        function saveData() {
+            const inputElement = document.getElementById('sensitiveDataInput');
+            const dataToSave = inputElement.value;
+            localStorage.setItem(sensitiveDataKey, dataToSave);
+            alert('Your custom data has been saved to localStorage!');
+            updateDisplayStatus(); // Update status
+        }
+
+        function loadData() {
+            updateDisplayStatus();
+            alert('Check Developer Tools -> Console or Application tab for contents.');
+        }
+
+        function clearData() {
+            localStorage.removeItem(sensitiveDataKey);
+            alert('Data cleared from localStorage!');
+            updateDisplayStatus();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem(sensitiveDataKey)) {
+                localStorage.setItem(sensitiveDataKey, 'Kaiulani');
+            }
+            updateDisplayStatus(); // Initial status update
+        });
+    </script>
+</body>
+</html>
